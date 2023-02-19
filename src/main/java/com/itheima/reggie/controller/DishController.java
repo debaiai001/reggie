@@ -164,7 +164,7 @@ public class DishController {
         List<DishDto> dtoList = null;
 
         //动态构造key
-        String key = "dish_" + dish.getCategoryId() + "_" + dish.getStatus();
+        String key = "dish_" + dish.getCategoryId() + "_1";
 
         //先从Redis中获取缓存数据
         dtoList = (List<DishDto>) redisTemplate.opsForValue().get(key);
