@@ -10,6 +10,7 @@ import java.util.Map;
  * @Description 通用返回结果，服务端响应的数据最终都会封装成此对象
  * @Date 21:38 2023/2/6
  **/
+//要实现序列化接口
 @Data
 public class R<T> implements Serializable {
 
