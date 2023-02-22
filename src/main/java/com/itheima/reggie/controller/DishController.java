@@ -10,6 +10,14 @@ import com.itheima.reggie.entity.DishFlavor;
 import com.itheima.reggie.service.CategoryService;
 import com.itheima.reggie.service.DishFlavorService;
 import com.itheima.reggie.service.DishService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +35,7 @@ import java.util.stream.Collectors;
  * @author: Figure
  * @date: 2023/02/12 14:28
  **/
+@Api(tags = "菜品相关接口")
 @RestController
 @RequestMapping("dish")
 @Slf4j
@@ -74,6 +83,12 @@ public class DishController {
      * @return com.itheima.reggie.common.R<com.baomidou.mybatisplus.extension.plugins.pagination.Page>
      **/
     @GetMapping("/page")
+    @ApiOperation(value = "菜品信息分页查询接口")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "page", value = "页码", required = true),
+            @ApiImplicitParam(name = "pageSize", value = "每页记录数", required = true),
+            @ApiImplicitParam(name = "name", value = "姓名", required = false),
+    })
     public R<Page> page(int page, int pageSize, String name){
         log.info("page = {}, pageSize = {}, name = {}", page, pageSize, name);
 
