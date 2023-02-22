@@ -57,5 +57,5 @@ mybatis-plus:
 
 #上传图片保存路径
 reggie:
-  path: D:\img\
+  path: /usr/local/img
 
